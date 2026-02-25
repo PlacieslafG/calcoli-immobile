@@ -19,7 +19,7 @@ WizardStyle=modern
 Name: "italian"; MessagesFile: "compiler:Languages\Italian.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "Crea un'icona sul {cm:DesktopName}"; GroupDescription: "Icone aggiuntive:"
+Name: "desktopicon"; Description: "Crea un'icona sul Desktop"; GroupDescription: "Icone aggiuntive:"
 
 [Files]
 Source: "dist\CalcoliImmobile.exe"; DestDir: "{app}"; Flags: ignoreversion
