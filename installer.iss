@@ -25,8 +25,8 @@ Name: "desktopicon"; Description: "Crea un'icona sul {cm:DesktopName}"; GroupDes
 Source: "dist\CalcoliImmobile.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\Calcoli Immobile";    DestPath: "{app}\CalcoliImmobile.exe"
-Name: "{autodesktop}\Calcoli Immobile"; DestPath: "{app}\CalcoliImmobile.exe"; Tasks: desktopicon
+Name: "{group}\Calcoli Immobile";      Filename: "{app}\CalcoliImmobile.exe"
+Name: "{autodesktop}\Calcoli Immobile"; Filename: "{app}\CalcoliImmobile.exe"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\CalcoliImmobile.exe"; Description: "Avvia Calcoli Immobile"; Flags: nowait postinstall skipifsilent
