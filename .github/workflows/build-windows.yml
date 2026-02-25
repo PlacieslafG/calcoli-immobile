@@ -1,0 +1,38 @@
+name: Build Windows Installer
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:          # avvio manuale da GitHub
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout sorgente
+        uses: actions/checkout@v4
+
+      - name: Configura Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installa dipendenze + PyInstaller
+        run: |
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build eseguibile (PyInstaller)
+        run: pyinstaller calcoli_immobile.spec
+
+      - name: Crea installer (Inno Setup)
+        run: |
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer.iss
+
+      - name: Carica installer come artefatto
+        uses: actions/upload-artifact@v4
+        with:
+          name: Setup_CalcoliImmobile
+          path: installer_out\Setup_CalcoliImmobile.exe
+          retention-days: 30
